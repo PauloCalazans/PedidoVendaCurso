@@ -1,0 +1,37 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">	
+	
+	<ui:define name="titulo">Relatorios de pedidos emitidos</ui:define>
+	
+	<ui:define name="corpo">
+		<h:form>
+			<p:messages closable="true" autoUpdate="true"/>
+			<p:toolbar style="margin-top:20px">
+				<p:toolbarGroup>
+					<p:commandButton value="Emitir" action="#{relatorioPedidosEmitidosBean.emitir}"
+						ajax="false"/>
+				</p:toolbarGroup>			
+			</p:toolbar>
+			
+			<p:panelGrid columns="2" style="width: 100%; margin-top: 20px;" 
+				columnClasses="rotulo, campo">
+				<p:outputLabel value="Data de criação" for="dataInicio"/>
+				<h:panelGroup>
+					<p:calendar id="dataInicio" value="#{relatorioPedidosEmitidosBean.dataInicio}" label="Data inicial"
+						pattern="dd/MM/yyyy" size="8" locale="pt"/>
+					<p:spacer width="8"/>
+					<h:outputText value="a"/>
+					<p:spacer width="8"/>
+					<p:calendar value="#{relatorioPedidosEmitidosBean.dataFim}" label="Data final"
+						pattern="dd/MM/yyyy" size="8" locale="pt"/>
+				</h:panelGroup>
+			</p:panelGrid>
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>
